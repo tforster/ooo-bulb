@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ooo-bulb", ".", "{375C0F6B-6C82-4AF6-BFA7-38C2E3498B0A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/ooo-bulb"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\github\tforster\ooo-bulb\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\ooo-bulb\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/ooo-bulb"
+		Release.AspNetCompiler.PhysicalPath = "..\..\github\tforster\ooo-bulb\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\ooo-bulb\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "60470"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{375C0F6B-6C82-4AF6-BFA7-38C2E3498B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375C0F6B-6C82-4AF6-BFA7-38C2E3498B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
