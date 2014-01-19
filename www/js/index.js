@@ -69,9 +69,71 @@ var app = {
          $('div#sectionContent').css('margin-top', '30px');
          $('div#wrapper').css('top', '70px');
       }
+
    }
 
 };
+
+var sparkCore = {
+   apiEndpoint: "api.spark.io/v1/devices/",
+
+   // to-do: move coreId and access_token to settings page; change access_token since this will be in public Github repo
+   coreId: "50ff6b065067545607310587",
+   access_token: "e0d8bdb86001a961a40995fdb0fa9779a6473d13",
+
+   post: function (method, args, callback) {
+      xhReq.open("POST", "https://" + this.apiEndpoint + this.coreId + "/" + method, false);
+      xhReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
+      //var postContent = JSON.parse({ "access_token": this.access_token, "args": args });
+      var postContent = "access_token=" + this.access_token + "&args=" + args;
+      xhReq.send(postContent);
+      if (xhReq.status == 200) {
+         callback(null, xhReq.responseText);
+      }
+      else {
+         callback(xhReq.statusText, null);
+      }
+   }
+}
+
+var ooobulb = {
+   init: function () {
+      document.getElementById("ooobulbIn").addEventListener("click", function (e) {
+         sparkCore.post("fadeTo", "00FF00", function (err, success) {
+            if (!err) {
+               console.log(success);
+            }
+            else {
+               console.log(err);
+            }
+         });
+      });
+
+      document.getElementById("ooobulbOut").addEventListener("click", function (e) {
+         sparkCore.post("fadeTo", "000000", function (err, success) {
+            if (!err) {
+               console.log(success);
+            }
+            else {
+               console.log(err);
+            }
+         });
+      });
+
+      document.getElementById("ooobulbDnD").addEventListener("click", function (e) {
+         sparkCore.post("fadeTo", "FF0000", function (err, success) {
+            if (!err) {
+               console.log(success);
+            }
+            else {
+               console.log(err);
+            }
+         });
+      });
+   }
+
+
+}
 
 function menu(option) {
 
@@ -107,13 +169,14 @@ function menu(option) {
       myScroll.enable();
    }
    else if (option == 2) {
-      $btnLocation.hide();
-      setTitle('About Us');
+    //  $btnLocation.hide();
+      setTitle('Out of Office Bulb');
       myScroll.enable();
+      ooobulb.init();
    }
    else if (option == 3) {
       $btnLocation.hide();
-      setTitle('Blog');
+      setTitle("Wifi Robot");
       myScroll.enable();
    }
    else if (option == 4) {
@@ -124,7 +187,11 @@ function menu(option) {
    }
    else if (option == 5) {
       setTitle('Contact');
-      mapObject.init();
+      myScroll.enable();
+   }
+   else if (option == 6) {
+      setTitle("Settings");
+      myScroll.enable();
    }
 
    //Refresh of the iScroll plugin
@@ -145,12 +212,13 @@ var mapObject = {
       var map, markers = [], openInfoWindow, bounds = new google.maps.LatLngBounds();
       $('div#mapCanvas').css({ 'height': heightBody - (heightBody / 2) + 10 + 'px' });
       var markers = [];
-      var latlng = new google.maps.LatLng(43.978518, 15.383649);
+
+      var latlng = new google.maps.LatLng(43.653226, -79.38318429999998);
       var myOptions = {
-         zoom: 16,
+         zoom: 14,
          center: latlng,
          disableDefaultUI: true,
-         mapTypeId: google.maps.MapTypeId.ROADMAP
+         mapTypeId: google.maps.MapTypeId.SATELLITE
       };
       map = new google.maps.Map(document.getElementById("mapCanvas"), myOptions);
 
