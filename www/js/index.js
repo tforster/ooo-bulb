@@ -187,6 +187,7 @@ function menu(option) {
    }
    else if (option == 5) {
       setTitle('Contact');
+      mapObject.init();
       myScroll.enable();
    }
    else if (option == 6) {
@@ -209,6 +210,7 @@ function setTitle(title) {
 var mapObject = {
 
    init: function () {
+      
       var map, markers = [], openInfoWindow, bounds = new google.maps.LatLngBounds();
       $('div#mapCanvas').css({ 'height': heightBody - (heightBody / 2) + 10 + 'px' });
       var markers = [];
