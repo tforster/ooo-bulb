@@ -193,6 +193,9 @@ function menu(option) {
    else if (option == 6) {
       setTitle("Settings");
       myScroll.enable();
+      $("video").prop('muted', true);
+      $("video").get(0).play();
+      $("video").get(0).audio();
    }
 
    //Refresh of the iScroll plugin
