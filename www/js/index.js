@@ -79,7 +79,7 @@ var sparkCore = {
 
    // to-do: move coreId and access_token to settings page; change access_token since this will be in public Github repo
    coreId: "50ff6b065067545607310587",
-   access_token: "e0d8bdb86001a961a40995fdb0fa9779a6473d13",
+   access_token: "189c31bb50831da1a6af457cb88822b7dd71927e",
 
    post: function (method, args, callback) {
       xhReq.open("POST", "https://" + this.apiEndpoint + this.coreId + "/" + method, false);
@@ -237,12 +237,12 @@ var mapObject = {
    getMarkers: function () {
       //Set a hardcoded marker
       mapObject.addMarker(
-			'43.978518',
-			'15.383649',
-			'Contact',
-			'<h3>Contact me</h3><br><p>I am at this heart shaped island.</p>',
-			1,
-			false);
+         '43.978518',
+         '15.383649',
+         'Contact',
+         '<h3>Contact me</h3><br><p>I am at this heart shaped island.</p>',
+         1,
+         false);
       $btnLocation.show();
    },
 
